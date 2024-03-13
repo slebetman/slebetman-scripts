@@ -1,0 +1,5 @@
+#! /bin/bash
+
+dirname $(dirname `upfind .git/config`)
+
+

@@ -1,0 +1,5 @@
+#! /bin/bash
+
+#git branch | awk '/\*/ {print $2}'
+
+git branch --show-current

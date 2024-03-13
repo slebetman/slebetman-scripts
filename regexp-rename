@@ -1,0 +1,23 @@
+#! /usr/bin/env node
+
+const fs = require('fs');
+let from = process.argv[2];
+let to = process.argv[3];
+let ok = !!process.argv[4];
+
+const files = fs.readdirSync('.');
+
+files.forEach(x => {
+	let y = x.replace(new RegExp(from), to);
+
+	if (x != y) {
+		if (!ok) {
+			console.log(`${x} -> ${y}`);
+		}
+		else {
+			fs.renameSync(x, y);
+		}
+	}
+})
+
+console.log('Done');

@@ -1,0 +1,13 @@
+#! /bin/bash
+
+cd `gitdir`
+
+case "$1" in
+	save|set)
+		thisbranch > .current
+		;;
+	*)
+		git checkout `cat .current`
+		;;
+esac
+

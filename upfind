@@ -1,0 +1,11 @@
+#! /usr/bin/env tclsh
+
+set fileName .
+set search [lindex $argv 0]
+
+while {[set dir [file normalize [file dirname $fileName]]] != "/"} {
+	if {[file isfile $dir/$search] && [file readable $dir/$search]} {
+		puts $dir/$search
+	}
+	set fileName $dir
+}
